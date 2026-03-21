@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReflexIA 2.0 | ITESO Universidad Jesuita de Guadalajara</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ─── */
+:root {
+  --navy:    #0b1f3a;
+  --blue:    #1c4b82;
+  --magenta: #d4006e;
+  --pink:    #ee3d8f;
+  --white:   #ffffff;
+  --off:     #f4f7fb;
+  --text:    #1a2a3a;
+  --mid:     #3d4f6a;
+  --border:  #dde7f3;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 75% 60% at 72% 38%, rgba(28,75,130,.65) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 75% at 10% 85%, rgba(212,0,110,.30) 0%, transparent 58%),
+    radial-gradient(ellipse 38% 38% at 88% 12%, rgba(212,0,110,.18) 0%, transparent 52%);
+}
+
+.arc {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: arc-pulse 9s ease-in-out infinite;
+}
+.arc-1 { width:1000px;height:1000px; border:1px solid rgba(212,0,110,.13); bottom:-380px;left:-260px; }
+.arc-2 { width:650px; height:650px;  border:1px solid rgba(212,0,110,.20); bottom:-200px;left:-100px; animation-delay:2.5s; }
+.arc-3 { width:420px; height:420px;  border:1px solid rgba(212,0,110,.28); bottom:-100px;left:0;       animation-delay:5s;   }
+
+@keyframes arc-pulse {
+  0%,100% { transform:scale(1);    opacity:.7; }
+  50%      { transform:scale(1.05);opacity:1;  }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-sup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fup .7s .1s ease forwards;
+}
+.hero-sup::before,.hero-sup::after {
+  content:''; display:block; width:26px; height:1px;
+  background:rgba(255,255,255,.2);
+}
+
+.hero-logo {
+  width: min(840px, 80vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 30px;
+  opacity: 0;
+  animation: fup .9s .28s ease forwards;
+  filter: drop-shadow(0 6px 28px rgba(0,0,0,.5));
+}
+
+.hero-rule {
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, var(--magenta), var(--pink));
+  border-radius: 2px;
+  margin: 0 auto 26px;
+  opacity: 0;
+  animation: fup .7s .46s ease forwards;
+}
+
+.hero-desc {
+  font-size: clamp(.93rem, 2.1vw, 1.12rem);
+  color: rgba(255,255,255,.7);
+  max-width: 620px;
+  font-weight: 300;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: fup .9s .62s ease forwards;
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fup .7s .82s ease forwards;
+}
+.badge {
+  padding: 7px 18px;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 100px;
+  font-size: .74rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  color: rgba(255,255,255,.65);
+  transition: all .22s;
+}
+.badge:hover { border-color:var(--magenta); color:var(--white); background:rgba(212,0,110,.14); }
+
+@keyframes fup {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.scroll-cue {
+  position: absolute; bottom:30px; left:50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction:column; align-items:center; gap:6px;
+  color: rgba(255,255,255,.22); font-size:.67rem; letter-spacing:.18em;
+  text-transform:uppercase; z-index:2;
+  animation: cue 2.6s ease-in-out infinite;
+}
+.scroll-cue::after {
+  content:''; display:block; width:1px; height:34px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.22), transparent);
+}
+@keyframes cue {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ─── GENERIC ─── */
+.sec  { padding:96px 24px; }
+.inn  { max-width:1180px; margin:0 auto; }
+
+.sec-hd { text-align:center; margin-bottom:64px; }
+.lbl {
+  display:inline-block; font-size:.7rem; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:var(--magenta); margin-bottom:13px;
+}
+.ttl {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.85rem,4.5vw,2.85rem);
+  font-weight:700; color:var(--navy);
+  line-height:1.2; margin-bottom:13px;
+}
+.sub {
+  color:var(--mid); font-size:.98rem; font-weight:300;
+  max-width:600px; margin:0 auto;
+}
+
+/* ─── QUOTES ─── */
+.q-sec {
+  background:var(--white);
+  border-top:3px solid var(--magenta);
+  padding:0;
+}
+.q-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  max-width:1180px; margin:0 auto;
+}
+.q-item {
+  padding:52px 42px;
+  border-right:1px solid var(--border);
+  position:relative;
+  transition:background .25s;
+}
+.q-item:last-child { border-right:none; }
+.q-item:hover { background:rgba(212,0,110,.025); }
+.q-mark {
+  font-family:'Playfair Display',serif;
+  font-size:5.5rem; line-height:0;
+  color:var(--magenta); opacity:.14;
+  position:absolute; top:40px; left:34px;
+}
+.q-text {
+  font-size:.95rem; font-style:italic;
+  color:var(--mid); line-height:1.82;
+  position:relative; z-index:1;
+  margin-bottom:18px;
+}
+.q-auth {
+  font-size:.73rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--blue);
+}
+
+/* ─── MISIÓN / VISIÓN ─── */
+.mv-sec { background:var(--off); }
+.mv-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.mv-card {
+  background:var(--white); border-radius:14px;
+  padding:38px 34px; border:1px solid var(--border);
+  position:relative; overflow:hidden;
+  transition:transform .28s, box-shadow .28s;
+}
+.mv-card::before {
+  content:''; position:absolute; top:0;left:0;
+  width:4px; height:100%;
+  background:linear-gradient(to bottom, var(--magenta), var(--blue));
+}
+.mv-card:hover { transform:translateY(-5px); box-shadow:0 20px 52px rgba(11,31,58,.1); }
+.mv-lbl { font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta);margin-bottom:12px; }
+.mv-card h3 { font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:12px; }
+.mv-card p  { color:var(--mid);font-weight:300;font-size:.92rem;line-height:1.82; }
+
+/* ─── VALORES ─── */
+.val-sec { background:var(--navy); }
+.val-sec .ttl { color:var(--white); }
+.val-sec .sub { color:rgba(255,255,255,.46); }
+.val-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2px;
+  background:rgba(255,255,255,.05);
+  border-radius:14px;
+  overflow:hidden;
+}
+.val-item {
+  padding:34px 26px;
+  background:rgba(11,31,58,.74);
+  transition:background .25s;
+}
+.val-item:hover { background:rgba(28,75,130,.44); }
+.val-bar {
+  width:30px; height:3px;
+  background:linear-gradient(90deg,var(--magenta),var(--blue));
+  border-radius:2px; margin-bottom:16px;
+}
+.val-name { font-size:.86rem;font-weight:600;color:var(--white);margin-bottom:8px; }
+.val-desc { font-size:.8rem;color:rgba(255,255,255,.46);font-weight:300;line-height:1.72; }
+
+/* ─── STATS ─── */
+.stats-sec {
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+  padding:72px 24px;
+}
+.stats-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+  max-width:1060px; margin:0 auto;
+  text-align:center;
+}
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4.5vw,3.6rem);
+  font-weight:900; color:var(--white);
+  line-height:1; margin-bottom:10px;
+}
+.stat-num .acc { color:var(--magenta); }
+.stat-lbl {
+  font-size:.76rem; font-weight:500;
+  color:rgba(255,255,255,.48);
+  letter-spacing:.07em; text-transform:uppercase;
+  line-height:1.4;
+}
+
+/* ─── EJES ─── */
+.axes-sec { background:var(--off); }
+.axes-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.ax-card {
+  background:var(--white); border-radius:14px;
+  padding:38px 30px; border:1px solid var(--border);
+  position:relative; overflow:hidden;
+  transition:transform .28s,box-shadow .28s;
+}
+.ax-card::after {
+  content:''; position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--magenta),var(--blue));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .32s ease;
+}
+.ax-card:hover { transform:translateY(-7px);box-shadow:0 24px 56px rgba(11,31,58,.12); }
+.ax-card:hover::after { transform:scaleX(1); }
+.ax-num {
+  font-family:'Playfair Display',serif;
+  font-size:3.4rem;font-weight:900;
+  line-height:1;margin-bottom:4px;
+  color:#e8eef7;
+}
+.ax-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;
+  color:var(--navy);margin-bottom:10px;
+}
+.ax-tags { display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px; }
+.ax-tags span {
+  font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 8px;border-radius:100px;
+  background:rgba(212,0,110,.08);color:var(--magenta);
+}
+.ax-desc { font-size:.87rem;color:var(--mid);font-weight:300;line-height:1.8; }
+
+/* ─── ACCIONES ─── */
+.act-sec { background:var(--white); }
+.act-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.act-card {
+  display:flex; gap:16px; align-items:flex-start;
+  padding:26px 22px;
+  border-radius:12px; border:1px solid var(--border);
+  background:var(--off);
+  transition:all .24s;
+}
+.act-card:hover {
+  background:var(--white); border-color:var(--blue);
+  box-shadow:0 10px 36px rgba(28,75,130,.09);
+  transform:translateX(3px);
+}
+.act-n {
+  flex-shrink:0; width:36px;height:36px;
+  border-radius:9px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  display:flex;align-items:center;justify-content:center;
+  font-size:.78rem;font-weight:700;color:var(--white);
+}
+.act-body h3 { font-weight:600;font-size:.92rem;color:var(--navy);margin-bottom:4px; }
+.act-body p  { font-size:.82rem;color:var(--mid);font-weight:300;line-height:1.74; }
+
+/* ─── TIMELINE ─── */
+.tl-sec { background:var(--off); }
+
+.tl-outer {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+/* The horizontal line sits at exactly the vertical center of the dots.
+   Dots are 18×18px. The tl-dot-wrap has no extra padding above it,
+   so the line top = half of dot = 9px from the top of tl-dot-wrap.
+   We place the line as ::before on tl-outer. */
+.tl-outer::before {
+  content:'';
+  position:absolute;
+  /* dot center relative to tl-outer top:
+     tl-stage has no top padding before dot-wrap → 0 + 9px = 9px */
+  top:9px;
+  /* line spans between first and last dot centers:
+     first dot center = 1/6 of grid width, last = 5/6 */
+  left:calc(100% / 6);
+  right:calc(100% / 6);
+  height:2px;
+  background:linear-gradient(90deg,var(--magenta),var(--blue));
+  opacity:.25;
+  z-index:0;
+}
+
+.tl-stage { padding:0 30px 0; text-align:center; }
+
+.tl-dot-wrap {
+  display:flex; justify-content:center;
+  margin-bottom:22px;
+  position:relative; z-index:1;
+}
+.tl-dot {
+  width:18px;height:18px;
+  border-radius:50%;
+  background:var(--white);
+  border:3px solid var(--magenta);
+  transition:background .24s;
+}
+.tl-stage:hover .tl-dot { background:var(--magenta); }
+
+.tl-lbl {
+  font-size:.67rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--magenta);margin-bottom:7px;
+}
+.tl-stage h3 {
+  font-family:'Playfair Display',serif;
+  font-size:1.22rem;font-weight:700;
+  color:var(--navy);margin-bottom:9px;
+}
+.tl-stage p { font-size:.86rem;color:var(--mid);font-weight:300;line-height:1.78; }
+
+/* ─── FOOTER ─── */
+footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
+.fi { max-width:1180px;margin:0 auto; }
+.ft {
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:40px;flex-wrap:wrap;
+  padding-bottom:36px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  margin-bottom:24px;
+}
+.footer-logo { width:min(210px,58vw);height:auto;display:block;filter:brightness(1.08); }
+.footer-tag { font-size:.9rem;color:rgba(255,255,255,.42);font-weight:300;max-width:320px;line-height:1.72; }
+.fb { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px; }
+.fb p { font-size:.76rem;color:rgba(255,255,255,.26); }
+.fb-yr { font-family:'Playfair Display',serif;font-size:.86rem;color:rgba(255,255,255,.17);letter-spacing:.06em; }
+
+/* ─── RESPONSIVE ─── */
+
+/* Quotes */
+@media (max-width:760px) {
+  .q-grid { grid-template-columns:1fr; }
+  .q-item { border-right:none; border-bottom:1px solid var(--border); }
+  .q-item:last-child { border-bottom:none; }
+}
+
+/* Misión / Visión */
+@media (max-width:860px) { .mv-grid { grid-template-columns:1fr; } }
+@media (min-width:561px) and (max-width:860px) { .mv-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* Valores */
+@media (max-width:960px) { .val-grid { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:580px) { .val-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* Stats — always 5 in a row until truly narrow */
+@media (max-width:700px) {
+  .stats-grid {
+    grid-template-columns:repeat(3,1fr);
+  }
+  /* put items 4 and 5 in their own centered sub-row */
+  .stat-item:nth-child(4) { grid-column:1; }
+  .stat-item:nth-child(5) { grid-column:2; }
+}
+@media (max-width:460px) {
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .stat-item:nth-child(4) { grid-column:auto; }
+  .stat-item:nth-child(5) { grid-column:1/-1; }
+}
+
+/* Ejes */
+@media (max-width:860px) { .axes-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:500px) { .axes-grid { grid-template-columns:1fr; } }
+
+/* Acciones */
+@media (max-width:840px) { .act-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:500px) { .act-grid { grid-template-columns:1fr; } }
+
+/* Timeline */
+@media (max-width:660px) {
+  .tl-outer {
+    grid-template-columns:1fr;
+    padding-left:44px;
+  }
+  .tl-outer::before {
+    top:0; bottom:0; height:auto;
+    left:8px; right:auto;
+    width:2px;
+  }
+  .tl-stage { padding:0 0 48px 20px; text-align:left; }
+  .tl-dot-wrap { position:absolute; left:-36px; top:0; margin-bottom:0; justify-content:flex-start; }
+  .tl-stage { position:relative; }
+}
+
+/* General */
+@media (max-width:600px) {
+  .sec { padding:68px 18px; }
+  .sec-hd { margin-bottom:40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="arc arc-1"></div>
+  <div class="arc arc-2"></div>
+  <div class="arc arc-3"></div>
+
+  <div class="hero-content">
+    <p class="hero-sup">ITESO, Universidad Jesuita de Guadalajara</p>
+
+    <!-- Logo real del PDF proporcionado -->
+    <img
+      src="logo.png"
+      data-src="reflexia-logo"
+      onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';"
+      alt="ReflexIA 2.0"
+      class="hero-logo"
+      id="hero-logo-img"
+      style="display:none;"
+    />
+    <!-- Fallback: render the logo from the uploaded image using an object-url trick -->
+    <img
+      src="logo.png"
+      alt="ReflexIA 2.0 — Comunidad | Diálogo | Futuros"
+      class="hero-logo"
+      id="logo-fallback"
+    />
+
+    <div class="hero-rule"></div>
+
+    <p class="hero-desc">
+      Ecosistema institucional para integrar la inteligencia artificial en la docencia,
+      la investigación, la gestión y la vinculación del ITESO con enfoque
+      ético, crítico y humanista. 2025–2030.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge">Proyecto Institucional</span>
+      <span class="badge">7 Líneas de Acción</span>
+      <span class="badge">4 Ejes Estratégicos</span>
+      <span class="badge">IA con Valores Ignacianos</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Explorar</div>
+</header>
+
+
+<!-- ── CITAS ── -->
+<section class="q-sec">
+  <div class="q-grid">
+
+    <div class="q-item">
+      <span class="q-mark">"</span>
+      <p class="q-text">Creo que la AGI será la tecnología más poderosa que la humanidad haya inventado hasta ahora.</p>
+      <p class="q-auth">Sam Altman</p>
+    </div>
+
+    <div class="q-item">
+      <span class="q-mark">"</span>
+      <p class="q-text">La IA será fundamental para resolver los mayores problemas del mundo, pero debe desarrollarse de manera que refleje los valores humanos.</p>
+      <p class="q-auth">Satya Nadella</p>
+    </div>
+
+    <div class="q-item">
+      <span class="q-mark">"</span>
+      <p class="q-text">La inteligencia artificial exige responsabilidad y discernimiento para orientar las herramientas por el bien de todos.</p>
+      <p class="q-auth">Papa León XIV, 2025</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── MISIÓN / VISIÓN / PROPÓSITO ── -->
+<section class="sec mv-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl">ReflexIA 2.0</span>
+      <h2 class="ttl">Misión, Visión y Propósito</h2>
+      <p class="sub">Una iniciativa interdepartamental orientada a promover el uso estratégico, ético y pedagógico de la inteligencia artificial en el ITESO.</p>
+    </div>
+
+    <div class="mv-grid">
+
+      <div class="mv-card">
+        <p class="mv-lbl">Misión</p>
+        <h3>Apropiación ética</h3>
+        <p>Promover la apropiación ética, pedagógica, crítica y humana de la inteligencia artificial en la comunidad universitaria, impulsando un ecosistema colaborativo que fortalezca la innovación educativa, la investigación interdisciplinaria y la transformación social.</p>
+      </div>
+
+      <div class="mv-card">
+        <p class="mv-lbl">Visión</p>
+        <h3>ITESO como referente</h3>
+        <p>Consolidar al ITESO como referente en innovación con sentido social, integrando la inteligencia artificial con los valores ignacianos y el compromiso con el bien común, alineado con el Plan Institucional 2025–2030.</p>
+      </div>
+
+      <div class="mv-card">
+        <p class="mv-lbl">Propósito</p>
+        <h3>Acompañar con discernimiento</h3>
+        <p>Acompañar a la comunidad del ITESO en la apropiación crítica, ética y humanista de la IA para potenciar el aprendizaje, la investigación y la innovación, promoviendo decisiones que reflejen los valores ignacianos.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── VALORES ── -->
+<section class="sec val-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl" style="color:var(--pink);">Valores</span>
+      <h2 class="ttl">Principios que nos guían</h2>
+      <p class="sub" style="color:rgba(255,255,255,.46);">Cada proyecto de ReflexIA está orientado por estos valores en sintonía con la identidad ignaciana del ITESO.</p>
+    </div>
+
+    <div class="val-grid">
+      <div class="val-item">
+        <div class="val-bar"></div>
+        <p class="val-name">Ética humanista</p>
+        <p class="val-desc">Uso responsable de la IA guiado por justicia, inclusión, dignidad humana y compromiso con el bien común.</p>
+      </div>
+      <div class="val-item">
+        <div class="val-bar"></div>
+        <p class="val-name">Colaboración transdisciplinaria</p>
+        <p class="val-desc">Trabajo conjunto entre distintas áreas del conocimiento para abordar los retos complejos que plantea la IA.</p>
+      </div>
+      <div class="val-item">
+        <div class="val-bar"></div>
+        <p class="val-name">Innovación con propósito</p>
+        <p class="val-desc">Soluciones creativas que integren la IA para mejorar procesos educativos e investigación, centradas en las personas.</p>
+      </div>
+      <div class="val-item">
+        <div class="val-bar"></div>
+        <p class="val-name">Pensamiento crítico</p>
+        <p class="val-desc">Actitud analítica frente a las oportunidades y desafíos de la IA, favoreciendo decisiones informadas y responsables.</p>
+      </div>
+      <div class="val-item">
+        <div class="val-bar"></div>
+        <p class="val-name">Acompañamiento transformador</p>
+        <p class="val-desc">Acompañar a la comunidad universitaria promoviendo confianza, formación continua y mejora integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── STATS ── -->
+<section class="stats-sec">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <p class="stat-num">23<span class="acc">+</span></p>
+      <p class="stat-lbl">Acciones<br>formativas</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">394</p>
+      <p class="stat-lbl">Participantes<br>alcanzados</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">4</p>
+      <p class="stat-lbl">Comunidades<br>de práctica</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">49<span class="acc">+</span></p>
+      <p class="stat-lbl">Departamentos<br>representados</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">110</p>
+      <p class="stat-lbl">Trabajos<br>académicos en IA</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── EJES ESTRATÉGICOS ── -->
+<section class="sec axes-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl">Ecosistema ITESO</span>
+      <h2 class="ttl">Ejes Estratégicos</h2>
+      <p class="sub">Cuatro dimensiones que articulan formación, gestión institucional e impacto social para integrar la IA en toda la vida universitaria.</p>
+    </div>
+
+    <div class="axes-grid">
+
+      <div class="ax-card">
+        <p class="ax-num">01</p>
+        <h3 class="ax-title">Académico</h3>
+        <div class="ax-tags"><span>Calidad académica</span><span>Formación</span><span>Investigación</span></div>
+        <p class="ax-desc">Fortalece la docencia y la investigación mediante metodologías de IA responsable, formando personas competentes, libres y comprometidas con la transformación social.</p>
+      </div>
+
+      <div class="ax-card">
+        <p class="ax-num">02</p>
+        <h3 class="ax-title">Comunitario</h3>
+        <div class="ax-tags"><span>Incidencia social</span><span>Medioambiente</span></div>
+        <p class="ax-desc">Conecta la IA con las urgencias sociales y ambientales del entorno, convirtiendo al ITESO en agente de cambio al servicio de la justicia y el bien común.</p>
+      </div>
+
+      <div class="ax-card">
+        <p class="ax-num">03</p>
+        <h3 class="ax-title">Administrativo</h3>
+        <div class="ax-tags"><span>Sustentabilidad</span><span>Optimización</span></div>
+        <p class="ax-desc">Integra analítica y automatización ética para liberar recursos, agilizar servicios y fortalecer la sostenibilidad institucional sin despersonalizar la universidad.</p>
+      </div>
+
+      <div class="ax-card">
+        <p class="ax-num">04</p>
+        <h3 class="ax-title">Redes</h3>
+        <div class="ax-tags"><span>Relaciones</span><span>Alianzas</span><span>Acuerdos</span></div>
+        <p class="ax-desc">Teje alianzas académicas, industriales y cívicas para co-crear conocimiento, transferir innovación y posicionar al ITESO como referente regional en IA humanista.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── LÍNEAS DE ACCIÓN ── -->
+<section class="sec act-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl">Implementación</span>
+      <h2 class="ttl">7 Líneas de Acción</h2>
+      <p class="sub">Las iniciativas estratégicas que permiten implementar ReflexIA en toda la comunidad universitaria con impacto medible y mejora continua.</p>
+    </div>
+
+    <div class="act-grid">
+
+      <div class="act-card">
+        <div class="act-n">01</div>
+        <div class="act-body">
+          <h3>Entornos de Formación</h3>
+          <p>Capacitación integral para docentes y personal en el uso crítico, ético y responsable de la IA: conferencias, talleres, diplomados y comunidades de práctica.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">02</div>
+        <div class="act-body">
+          <h3>Microcredencialización</h3>
+          <p>Diseño y emisión de microcursos con open-badges institucionales que certifican competencias en IA de forma flexible y progresiva.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">03</div>
+        <div class="act-body">
+          <h3>Embajadores</h3>
+          <p>Red interdepartamental de más de 49 representantes que articulan buenas prácticas, mentorías y reflexión crítica sobre IA en cada área de la universidad.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">04</div>
+        <div class="act-body">
+          <h3>PAP Inteligencia Artificial</h3>
+          <p>Programas de Aplicación Profesional que desarrollan soluciones de IA con impacto social real, vinculando formación académica y comunidad.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">05</div>
+        <div class="act-body">
+          <h3>Investigación y Desarrollo</h3>
+          <p>Proyectos interdisciplinarios sobre IA educativa y ética, con divulgación científica y conexión con redes nacionales e internacionales.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">06</div>
+        <div class="act-body">
+          <h3>Observatorio de IA</h3>
+          <p>Plataforma de vigilancia tecnológica, análisis prospectivo y tableros de indicadores para monitorear riesgos y oportunidades de la IA.</p>
+        </div>
+      </div>
+
+      <div class="act-card">
+        <div class="act-n">07</div>
+        <div class="act-body">
+          <h3>Mejora de Procesos Administrativos</h3>
+          <p>Automatización ética, chatbots y analítica predictiva para agilizar servicios institucionales manteniendo el trato humano.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── IMPLEMENTACIÓN EN 3 ETAPAS ── -->
+<section class="sec tl-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl">Estrategia 2025–2030</span>
+      <h2 class="ttl">Implementación en Tres Etapas</h2>
+      <p class="sub">Un horizonte de cinco años que consolida una base institucional sólida para la apropiación crítica de la inteligencia artificial.</p>
+    </div>
+
+    <div class="tl-outer">
+
+      <div class="tl-stage">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <p class="tl-lbl">Etapa 1 · 2025–2026</p>
+        <h3>Configuración inicial</h3>
+        <p>Diseñar e implementar escenarios formativos piloto con docentes clave y establecer la gobernanza del proyecto.</p>
+      </div>
+
+      <div class="tl-stage">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <p class="tl-lbl">Etapa 2 · 2027–2028</p>
+        <h3>Articulación y expansión</h3>
+        <p>Consolidar y escalar la formación, integrar iniciativas de investigación y gestión en toda la universidad.</p>
+      </div>
+
+      <div class="tl-stage">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <p class="tl-lbl">Etapa 3 · 2029–2030</p>
+        <h3>Integración institucional</h3>
+        <p>Incorporar ReflexIA 2.0 en políticas, currículum y gestión, garantizando su sostenibilidad a largo plazo.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <img
+        src="logo.png"
+        alt="ReflexIA 2.0"
+        class="footer-logo"
+      />
+      <p class="footer-tag">
+        Proyecto Institucional del ITESO para la integración ética, crítica y humanista
+        de la inteligencia artificial en la vida universitaria.
+      </p>
+    </div>
+    <div class="fb">
+      <p>ITESO, Universidad Jesuita de Guadalajara · Tlaquepaque, Jalisco, México</p>
+      <p class="fb-yr">2025 — 2030</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
