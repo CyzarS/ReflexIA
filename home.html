@@ -7,6 +7,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+  /* ─── MENU ─── */
+.menu {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 20px;
+  z-index: 999;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: var(--magenta);
+  color: white;
+}
 /* ─── TOKENS ─── */
 :root {
   --navy:    #0b1f3a;
@@ -157,8 +183,13 @@ body {
   animation: cue 2.6s ease-in-out infinite;
 }
 .scroll-cue::after {
-  content:''; display:block; width:1px; height:34px;
-  background: linear-gradient(to bottom, rgba(255,255,255,.22), transparent);
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255,255,255,.5);
+  border-bottom: 2px solid rgba(255,255,255,.5);
+  transform: rotate(45deg);
+  margin-top: 6px;
 }
 @keyframes cue {
   0%,100% { transform: translateX(-50%) translateY(0); }
@@ -168,11 +199,24 @@ body {
 /* ─── GENERIC ─── */
 .sec  { padding:96px 24px; }
 .inn  { max-width:1180px; margin:0 auto; }
-
+h1, h2, h3, h4, h5, h6,
+.ttl,
+.lbl,
+.ax-title,
+.mv-card h3,
+.tl-stage h3 {
+  font-family:'Playfair Display', serif;
+}
+p, span, .sub, 
+.badge, .val-name, .val-desc,
+.act-body h3, .act-body p,
+.q-text, .q-auth {
+  font-family:'DM Sans', sans-serif;
+}
 .sec-hd { text-align:center; margin-bottom:64px; }
 .lbl {
-  display:inline-block; font-size:.7rem; font-weight:700;
-  letter-spacing:.28em; text-transform:uppercase;
+  display:inline-block;  font-size: clamp(1.85rem,4.5vw,2.85rem); font-weight:700;
+  text-transform:uppercase;
   color:var(--magenta); margin-bottom:13px;
 }
 .ttl {
@@ -243,6 +287,9 @@ body {
 }
 .mv-card:hover { transform:translateY(-5px); box-shadow:0 20px 52px rgba(11,31,58,.1); }
 .mv-lbl { font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta);margin-bottom:12px; }
+.magenta {
+  color: var(--magenta);
+}
 .mv-card h3 { font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:12px; }
 .mv-card p  { color:var(--mid);font-weight:300;font-size:.92rem;line-height:1.82; }
 
@@ -324,7 +371,7 @@ body {
   font-family:'Playfair Display',serif;
   font-size:3.4rem;font-weight:900;
   line-height:1;margin-bottom:4px;
-  color:#e8eef7;
+  color:var(--blue);
 }
 .ax-title {
   font-family:'Playfair Display',serif;
@@ -343,9 +390,11 @@ body {
 .act-sec { background:var(--white); }
 .act-grid {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:16px;
+
 }
+
 .act-card {
   display:flex; gap:16px; align-items:flex-start;
   padding:26px 22px;
@@ -505,6 +554,15 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 </head>
 <body>
 
+<nav class="menu">
+  <a href="#inicio">Inicio</a>
+  <a href="#acciones">Acciones</a>
+  <a href="#ejes">Ejes</a>
+  <a href="#observatorio">Observatorio</a>
+  
+</nav>
+
+
 <!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-bg"></div>
@@ -565,15 +623,16 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 
     <div class="q-item">
       <span class="q-mark">"</span>
-      <p class="q-text">La IA será fundamental para resolver los mayores problemas del mundo, pero debe desarrollarse de manera que refleje los valores humanos.</p>
-      <p class="q-auth">Satya Nadella</p>
+      <p class="q-text">La inteligencia artificial exige responsabilidad y discernimiento para orientar las herramientas por el bien de todos.</p>
+      <p class="q-auth">Papa León XIV, 2025</p>
     </div>
 
     <div class="q-item">
       <span class="q-mark">"</span>
-      <p class="q-text">La inteligencia artificial exige responsabilidad y discernimiento para orientar las herramientas por el bien de todos.</p>
-      <p class="q-auth">Papa León XIV, 2025</p>
+      <p class="q-text">La IA será fundamental para resolver los mayores problemas del mundo, pero debe desarrollarse de manera que refleje los valores humanos.</p>
+      <p class="q-auth">Satya Nadella</p>
     </div>
+
 
   </div>
 </section>
@@ -583,7 +642,7 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 <section class="sec mv-sec">
   <div class="inn">
     <div class="sec-hd">
-      <span class="lbl">ReflexIA 2.0</span>
+      
       <h2 class="ttl">Misión, Visión y Propósito</h2>
       <p class="sub">Una iniciativa interdepartamental orientada a promover el uso estratégico, ético y pedagógico de la inteligencia artificial en el ITESO.</p>
     </div>
@@ -591,19 +650,19 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
     <div class="mv-grid">
 
       <div class="mv-card">
-        <p class="mv-lbl">Misión</p>
+        <p class="mv-lbl" style="color: var(--magenta);" >Misión</p>
         <h3>Apropiación ética</h3>
         <p>Promover la apropiación ética, pedagógica, crítica y humana de la inteligencia artificial en la comunidad universitaria, impulsando un ecosistema colaborativo que fortalezca la innovación educativa, la investigación interdisciplinaria y la transformación social.</p>
       </div>
 
       <div class="mv-card">
-        <p class="mv-lbl">Visión</p>
+        <p class="mv-lbl" style="color: var(--magenta);">Visión</p>
         <h3>ITESO como referente</h3>
         <p>Consolidar al ITESO como referente en innovación con sentido social, integrando la inteligencia artificial con los valores ignacianos y el compromiso con el bien común, alineado con el Plan Institucional 2025–2030.</p>
       </div>
 
       <div class="mv-card">
-        <p class="mv-lbl">Propósito</p>
+        <p class="mv-lbl" style="color: var(--magenta);" >Propósito</p>
         <h3>Acompañar con discernimiento</h3>
         <p>Acompañar a la comunidad del ITESO en la apropiación crítica, ética y humanista de la IA para potenciar el aprendizaje, la investigación y la innovación, promoviendo decisiones que reflejen los valores ignacianos.</p>
       </div>
