@@ -1,0 +1,782 @@
+<head>
+
+  <title>Inversión en I+D: IA en México</title>
+  <link>
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --blue: #1c4b82;
+      --magenta: #d4006e;
+      --pink: #ee3d8f;
+      --white: #ffffff;
+      --off: #f4f7fb;
+      --text: #1a2a3a;
+      --mid: #3d4f6a;
+      --border: #dde7f3;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 52vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 72px 24px 64px;
+    }
+    .stats-title {
+      text-align: center;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: 700;
+      
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+    .stats-title span {
+      color: var(--pink);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 75% 60% at 72% 38%, rgba(28, 75, 130, .65) 0%, transparent 65%), radial-gradient(ellipse 55% 75% at 10% 85%, rgba(212, 0, 110, .30) 0%, transparent 58%);
+    }
+
+    .arc {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: arc-pulse 9s ease-in-out infinite;
+    }
+
+    .arc-1 {
+      width: 900px;
+      height: 900px;
+      border: 1px solid rgba(212, 0, 110, .13);
+      bottom: -380px;
+      left: -260px;
+    }
+
+    .arc-2 {
+      width: 580px;
+      height: 580px;
+      border: 1px solid rgba(212, 0, 110, .20);
+      bottom: -200px;
+      left: -100px;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes arc-pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .7;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 780px;
+    }
+
+    .hero-logos {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      display: flex;
+      gap: 20px;
+      z-index: 3;
+    }
+
+    .hero-logos img {
+      height: 50px;
+      width: auto;
+      filter: brightness(1.1);
+    }
+
+    .hero-sup {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 28px;
+    }
+
+    .hero-sup::before,
+    .hero-sup::after {
+      content: '';
+      display: block;
+      width: 26px;
+      height: 1px;
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      color: var(--pink);
+    }
+
+    .hero-rule {
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--magenta), var(--pink));
+      border-radius: 2px;
+      margin: 18px auto;
+    }
+
+    .hero-desc {
+      font-size: clamp(.9rem, 2vw, 1.05rem);
+      color: rgba(255, 255, 255, .65);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 6px 16px;
+      border: 1px solid rgba(255, 255, 255, .17);
+      border-radius: 100px;
+      font-size: .74rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: rgba(255, 255, 255, .65);
+      transition: all .22s;
+    }
+
+    .badge:hover {
+      border-color: var(--magenta);
+      color: var(--white);
+      background: rgba(212, 0, 110, .14);
+    }
+
+    /* SEPARATOR */
+    .separator {
+      background: #e8eef7;
+      padding: 40px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .separator-arrow {
+      font-size: 2rem;
+      color: #3d4f6a;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    /* STATS */
+    .stats-sec {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 52px 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-num .acc {
+      color: var(--pink);
+    }
+
+    .stat-lbl {
+      font-size: .74rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .48);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    @media(max-width:700px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:420px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* GENERIC */
+    .sec {
+      padding: 80px 24px;
+    }
+
+    .inn {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .sec-hd {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .lbl {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--magenta);
+      margin-bottom: 10px;
+    }
+
+    .ttl {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .sub {
+      color: var(--mid);
+      font-size: .96rem;
+      font-weight: 300;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* INSTITUTION SECTIONS */
+    .inst-sec {
+      background: var(--white);
+    }
+
+    .inst-sec:nth-child(even) {
+      background: var(--off);
+    }
+
+    .inst-hd {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .inst-num {
+      flex-shrink: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1;
+    }
+
+    .inst-info h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .inst-info .repo {
+      font-size: .75rem;
+      color: var(--magenta);
+      font-weight: 500;
+      letter-spacing: .08em;
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .proj-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 26px 24px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s, box-shadow .28s;
+    }
+
+    .inst-sec:nth-child(even) .proj-card {
+      background: var(--white);
+    }
+
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--magenta), var(--blue));
+    }
+
+    .proj-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(11, 31, 58, .1);
+    }
+
+    .proj-status {
+      display: inline-block;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .status-active {
+      background: rgba(15, 110, 86, .1);
+      color: #0f6e56;
+    }
+
+    .status-done {
+      background: rgba(88, 88, 88, .08);
+      color: #5f5e5a;
+    }
+
+    .proj-card h3 {
+      font-family:'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .proj-meta {
+      display: grid;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .proj-meta-row {
+      display: flex;
+      gap: 8px;
+      font-size: .8rem;
+    }
+
+    .proj-meta-row .key {
+      color: var(--magenta);
+      font-weight: 600;
+      min-width: 88px;
+      flex-shrink: 0;
+    }
+
+    .proj-meta-row .val {
+      color: var(--mid);
+      font-weight: 300;
+    }
+
+    .proj-desc {
+      font-size: .83rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.78;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      margin-top: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 48px 24px 28px;
+    }
+
+    .fi {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .ft {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, .09);
+      margin-bottom: 20px;
+    }
+
+    .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .footer-brand span {
+      color: var(--pink);
+    }
+
+    .footer-tag {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .42);
+      font-weight: 300;
+      max-width: 360px;
+      line-height: 1.72;
+    }
+
+    .fb {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .fb p {
+      font-size: .74rem;
+      color: rgba(255, 255, 255, .26);
+    }
+
+    .footer-logos {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer-logo {
+      height: 60px;
+      width: auto;
+    }
+  </style>
+</head>
+
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="arc arc-1"></div>
+  <div class="arc arc-2"></div>
+  <div class="hero-content">
+    <p class="hero-sup">Proyecto Escolar · Marzo 2026</p>
+    <h1 class="hero-title">OBSERVATORIO REFLEXIA</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-desc">Proyectos de investigación en inteligencia artificial en instituciones públicas de México —
+      2024 / 2025</p>
+    <div class="hero-badges">
+      <span class="badge">Inversión en Investigación y Desarrollo (I+D)</span>
+      <span class="badge">Ecosistema Habilitador</span>
+      <span class="badge">Marco de Gobernanza</span>
+      <span class="badge">Talento y Trabajo</span>
+
+    </div>
+  </div>
+</header>
+
+<!-- SEPARATOR -->
+<div class="separator">
+  <span class="separator-arrow">↓</span>
+</div>
+
+<!-- STATS -->
+<section class="stats-sec">
+   <h2 class="stats-title">Inversión en Investigación y Desarrollo (I+D)</h2>
+  <div class="stats-grid">
+    <div class="stat-item">
+      <p class="stat-num">6</p>
+      <p class="stat-lbl">Instituciones</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">10</p>
+      <p class="stat-lbl">Proyectos</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">7</p>
+      <p class="stat-lbl">Activos</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">3</p>
+      <p class="stat-lbl">Concluidos</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">2024</p>
+      <p class="stat-lbl">Año inicio</p>
+    </div>
+    <div class="stat-item">
+      <p class="stat-num">2026</p>
+      <p class="stat-lbl">Horizonte</p>
+    </div>
+  </div>
+</section>
+<!-- SECCIÓN REORGANIZADA POR TIPO DE IA (con detalles) -->
+
+<!-- IA GENERATIVA -->
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl">IA Generativa</h2>
+      <p class="sub">Modelos generativos, LLMs y herramientas creativas</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>GAIA-GEN (UNAM)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">UNAM (institucional)</span></div>
+        </div>
+        <p class="proj-desc">Promueve redes de colaboración, lineamientos de uso ético, publicaciones y eventos sobre IA generativa en la UNAM.</p>
+        <a href="https://iagen.unam.mx" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>TECgpt (Tec de Monterrey)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023 – 2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Institucional Tec</span></div>
+        </div>
+        <p class="proj-desc">Primer modelo de IA generativa desarrollado en Latinoamérica.</p>
+        <a href="https://tecscience.tec.mx/en/tech/tecgpt/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- NLP -->
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl">Procesamiento de Lenguaje Natural (NLP)</h2>
+      <p class="sub">Modelos de lenguaje, análisis de texto y LLMs aplicados</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>PAI 2025 (INEGI)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2025</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Presupuesto federal</span></div>
+        </div>
+        <p class="proj-desc">Proyectos con IA como LLMs y procesamiento de lenguaje natural (PLN) para estadística gubernamental.</p>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>fAIr LAC+ Hub (Tec)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Tec + Wizeline</span></div>
+        </div>
+        <p class="proj-desc">Hub de IA ética para el bien social en América Latina y el Caribe.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- VISIÓN POR COMPUTADORA -->
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl">Visión por Computadora</h2>
+      <p class="sub">Análisis de imágenes, video y reconocimiento visual</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>Detección de Mentiras (ITESO)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT</span></div>
+        </div>
+        <p class="proj-desc">Análisis pupilar con deep learning mediante la arquitectura ResNet-50 para detección de engaño.</p>
+        <a href="https://biblioteca.iteso.mx/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EDUCACIÓN CON IA -->
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl">Educación con IA</h2>
+      <p class="sub">Aplicaciones educativas, docencia y formación</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>IA + Realidad Aumentada en Química (UNAM)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – 2026</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">DGAPA / PAPIIT (UNAM)</span></div>
+        </div>
+        <p class="proj-desc">"Conviviendo con moléculas": integración de IA y AR en enseñanza de la química. Ganador convocatoria UNAM–Huawei 2023-2024.</p>
+        <a href="https://sites.google.com/iquimica.unam.mx/microiqunam/proyectos" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>Posgrados en IA (UdeG)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT / UdeG</span></div>
+        </div>
+        <p class="proj-desc">Programas de maestría y doctorado en IA y robótica.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ECOSISTEMA / INVESTIGACIÓN -->
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl">Ecosistema e Investigación</h2>
+      <p class="sub">Infraestructura, financiamiento y difusión científica</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Activo</span>
+        <h3>Convocatoria Ciencia Básica (CONAHCYT)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT</span></div>
+        </div>
+        <p class="proj-desc">Financiamiento a proyectos de inteligencia artificial en instituciones públicas de educación superior e investigación.</p>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>Revista TIES No.10 (UNAM)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">UNAM / DGTIC</span></div>
+        </div>
+        <p class="proj-desc">Publicación académica sobre IA en educación superior.</p>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>Smart Audio Equalizer (ITESO)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">ITESO</span></div>
+        </div>
+        <p class="proj-desc">Ecualizador inteligente basado en redes neuronales para procesamiento de audio adaptativo.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="footer-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_del_ITESO.svg" alt="ITESO Logo" class="footer-logo" />
+        <img src="https://xzcftgnpybctzheulhbt.supabase.co/storage/v1/object/public/product-images/logo.png" alt="REFLEXIA Logo" class="footer-logo" />
+      </div>
+      <p class="footer-tag">
+        Proyecto Institucional del ITESO para la integración ética, crítica y humanista
+        de la inteligencia artificial en la vida universitaria.
+      </p>
+    </div>
+    <div class="fb">
+      <p>ITESO, Universidad Jesuita de Guadalajara · Tlaquepaque, Jalisco, México</p>
+      <p class="fb-yr">2025 — 2030</p>
+    </div>
+  </div>
+</footer>
