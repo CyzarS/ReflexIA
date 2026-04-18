@@ -122,11 +122,24 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 <section class="sec inst-sec">
   <div class="inn">
     <div class="sec-hd">
-      <p class="lbl">Categoría</p>
-      <h2 class="ttl"> Modelos Generativos y Lenguaje</h2>
-      <p class="sub">Modelos generativos, LLMs y herramientas creativas</p>
+      <h2 class="ttl">Modelos Generativos y Lenguaje</h2>
+      <p class="sub">Desarrollo y aplicación de modelos generativos y procesamiento de lenguaje natural</p>
     </div>
-     <div class="proj-card">
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>TECgpt (Tecnológico de Monterrey)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023 – 2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Tecnológico de Monterrey</span></div>
+        </div>
+        <p class="proj-desc">Primer modelo de inteligencia artificial generativa en Latinoamérica enfocado en generación de contenido y NLP.</p>
+        <a href="https://tecscience.tec.mx/en/tech/tecgpt/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
         <span class="proj-status status-done">Concluido</span>
         <h3>IA generativa en negocios (ITESO)</h3>
         <div class="proj-meta">
@@ -136,16 +149,7 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
         <p class="proj-desc">Análisis del impacto de la IA generativa en procesos empresariales, ventajas competitivas y retos regulatorios.</p>
         <a href="https://rei.iteso.mx/items/f8af0537-294e-4deb-9971-51c0e19835e1" target="_blank" class="proj-link">Más info →</a>
       </div>
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>TECgpt (Tec de Monterrey)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023 – 2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Institucional Tec</span></div>
-        </div>
-        <p class="proj-desc">Primer modelo de IA generativa desarrollado en Latinoamérica.</p>
-        <a href="https://tecscience.tec.mx/en/tech/tecgpt/" target="_blank" class="proj-link">Más info →</a>
-      </div>
+
     </div>
   </div>
 </section>
