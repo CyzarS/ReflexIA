@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Observatorio REFLEXIA</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<link>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -69,22 +64,22 @@ body{font-family:'Montserrat',sans-serif;background:var(--off);color:var(--text)
 .proj-link:hover{text-decoration:underline}
 
 /* FOOTER */
-footer{background:var(--navy);color:var(--white);padding:48px 24px 32px}
-.fi{max-width:1140px;margin:0 auto}
-.ft-top{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:24px}
-.ft-logos{display:flex;gap:20px;align-items:center}
-.ft-logo{height:52px;width:auto;filter:brightness(1.1)}
-.ft-info{}
-.ft-title{font-size:1.3rem;font-weight:900;color:var(--white);margin-bottom:6px}
-.ft-title span{color:var(--pink)}
-.ft-desc{font-size:.86rem;color:rgba(255,255,255,.48);font-weight:300;line-height:1.7;max-width:480px}
-.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.ft-bottom p{font-size:.74rem;color:rgba(255,255,255,.28)}
-.ft-bottom .ft-yr{font-size:.74rem;color:rgba(255,255,255,.28)}
-@media(max-width:600px){.ft-top{grid-template-columns:1fr}.ft-logos{justify-content:flex-start}}
+footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
+.fi { max-width:1180px;margin:0 auto; }
+.ft {
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:40px;flex-wrap:wrap;
+  padding-bottom:36px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  margin-bottom:24px;
+}
+.footer-logo { width:min(210px,58vw);height:auto;display:block;filter:brightness(1.08); }
+.footer-tag { font-size:.9rem;color:rgba(255,255,255,.42);font-weight:300;max-width:320px;line-height:1.72; }
+.fb { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px; }
+.fb p { font-size:.76rem;color:rgba(255,255,255,.26); }
+.fb-yr { font-family:'Montserrat', sans-serif;font-size:.86rem;color:rgba(255,255,255,.17);l
 </style>
 </head>
-<body>
 
 <header class="hero">
   <div class="hero-bg"></div>
@@ -103,6 +98,14 @@ footer{background:var(--navy);color:var(--white);padding:48px 24px 32px}
     </div>
   </div>
 </header>
+
+<div style="background:#0b1f3a; padding:18px 0 0; display:flex; flex-direction:column; align-items:center; gap:0;">
+  <svg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <path d='M14 6v16M6 18l8 8 8-8' stroke='rgba(255,255,255,0.35)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+  </svg>
+</div>
+
+<div style="height:48px; background:linear-gradient(to bottom, #0b1f3a, #f4f7fb);"></div>
 
 <section class="stats-sec">
   <h2 class="stats-title">Inversión en Investigación y Desarrollo <span>(I+D)</span></h2>
@@ -270,24 +273,20 @@ footer{background:var(--navy);color:var(--white);padding:48px 24px 32px}
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <div class="fi">
-    <div class="ft-top">
-      <div class="ft-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_del_ITESO.svg" alt="ITESO" class="ft-logo"/>
-        <img src="https://xzcftgnpybctzheulhbt.supabase.co/storage/v1/object/public/product-images/logo.png" alt="REFLEXIA" class="ft-logo"/>
-      </div>
-      <div class="ft-info">
-        <p class="ft-title">Observatorio <span>ReflexIA</span></p>
-        <p class="ft-desc">Proyecto Institucional del ITESO para la integración ética, crítica y humanista de la inteligencia artificial en la vida universitaria.</p>
-      </div>
+    <div class="ft">
+      <img src="https://xzcftgnpybctzheulhbt.supabase.co/storage/v1/object/public/product-images/logo.png" alt="ReflexIA 2.0" class="footer-logo" />
+      <p class="footer-tag">
+        Proyecto Institucional del ITESO para la integración ética, crítica y humanista
+        de la inteligencia artificial en la vida universitaria.
+      </p>
     </div>
-    <div class="ft-bottom">
+    <div class="fb">
       <p>ITESO, Universidad Jesuita de Guadalajara · Tlaquepaque, Jalisco, México</p>
-      <p class="ft-yr">2025 — 2030</p>
+      <p class="fb-yr">2025 — 2030</p>
     </div>
   </div>
 </footer>
 
-</body>
-</html>
