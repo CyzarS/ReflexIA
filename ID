@@ -86,10 +86,10 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
   <div class="arc arc-1"></div>
   <div class="arc arc-2"></div>
   <div class="hero-content">
-    <p class="hero-sup">Marzo 2026</p>
+    <p class="hero-sup">ITESO, Universidad Jesuita de Guadalajara</p>
     <h1 class="hero-title">Observatorio <span>ReflexIA</span></h1>
     <div class="hero-rule"></div>
-    <p class="hero-desc">Inteligencia artificial en instituciones públicas de México — 2024 / 2025</p>
+    <p class="hero-desc">Sistema de vigilancia estratégica y generación de conocimiento para la toma de decisiones en inteligencia artificial</p>
     <div class="hero-badges">
       <span class="badge">Inversión en I+D</span>
       <span class="badge">Ecosistema Habilitador</span>
@@ -123,19 +123,18 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
   <div class="inn">
     <div class="sec-hd">
       <p class="lbl">Categoría</p>
-      <h2 class="ttl">IA Generativa</h2>
+      <h2 class="ttl"> Modelos Generativos y Lenguaje</h2>
       <p class="sub">Modelos generativos, LLMs y herramientas creativas</p>
     </div>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>GAIA-GEN (UNAM)</h3>
+     <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>IA generativa en negocios (ITESO)</h3>
         <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">UNAM (institucional)</span></div>
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">ITESO institucional</span></div>
         </div>
-        <p class="proj-desc">Promueve redes de colaboración, lineamientos de uso ético, publicaciones y eventos sobre IA generativa en la UNAM.</p>
-        <a href="https://iagen.unam.mx" target="_blank" class="proj-link">Más info →</a>
+        <p class="proj-desc">Análisis del impacto de la IA generativa en procesos empresariales, ventajas competitivas y retos regulatorios.</p>
+        <a href="https://rei.iteso.mx/items/f8af0537-294e-4deb-9971-51c0e19835e1" target="_blank" class="proj-link">Más info →</a>
       </div>
       <div class="proj-card">
         <span class="proj-status status-done">Concluido</span>
@@ -154,29 +153,42 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 <section class="sec inst-sec">
   <div class="inn">
     <div class="sec-hd">
-      <p class="lbl">Categoría</p>
-      <h2 class="ttl">Procesamiento de Lenguaje Natural (NLP)</h2>
-      <p class="sub">Modelos de lenguaje, análisis de texto y LLMs aplicados</p>
+      <h2 class="ttl">Aplicaciones de IA en Sectores Estratégicos</h2>
+      <p class="sub">Uso de inteligencia artificial en salud, industria, agricultura y mercados</p>
     </div>
+
     <div class="proj-grid">
+
       <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>PAI 2025 (INEGI)</h3>
+        <span class="proj-status status-done">Concluido</span>
+        <h3>IA en diseño de fármacos (UNAM)</h3>
         <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2025</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Presupuesto federal</span></div>
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
         </div>
-        <p class="proj-desc">Proyectos con IA como LLMs y procesamiento de lenguaje natural (PLN) para estadística gubernamental.</p>
+        <p class="proj-desc">Aplicación de IA en el desarrollo de fármacos para optimizar descubrimiento de compuestos y procesos de investigación.</p>
+        <a href="https://www.revistas.unam.mx/index.php/req/article/view/83233" target="_blank" class="proj-link">Más info →</a>
       </div>
+
       <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>fAIr LAC+ Hub (Tec)</h3>
+        <span class="proj-status status-done">Concluido</span>
+        <h3>IA en agricultura (IPN)</h3>
         <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Tec + Wizeline</span></div>
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
         </div>
-        <p class="proj-desc">Hub de IA ética para el bien social en América Latina y el Caribe.</p>
+        <p class="proj-desc">Detección de daño en cultivos mediante técnicas de IA para mejorar la productividad agrícola.</p>
+        <a href="https://rcs.cic.ipn.mx/2024_153_9/Tecnicas%20de%20inteligencia%20artificial%20para%20la%20deteccion.pdf" target="_blank" class="proj-link">Más info →</a>
       </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Concluido</span>
+        <h3>Diseño estratégico con IA (IBERO)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
+        </div>
+        <p class="proj-desc">Uso de inteligencia artificial para generar insights y transformar procesos creativos en mercados de consumo.</p>
+        <a href="https://ri.ibero.mx/bitstream/handle/ibero/2421/016924s.pdf" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -184,91 +196,23 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 <section class="sec inst-sec">
   <div class="inn">
     <div class="sec-hd">
-      <p class="lbl">Categoría</p>
-      <h2 class="ttl">Visión por Computadora</h2>
-      <p class="sub">Análisis de imágenes, video y reconocimiento visual</p>
+      <h2 class="ttl">Gobernanza y Ética de la IA</h2>
+      <p class="sub">Análisis de implicaciones sociales, éticas y regulatorias de la inteligencia artificial</p>
     </div>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>Detección de Mentiras (ITESO)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT</span></div>
-        </div>
-        <p class="proj-desc">Análisis pupilar con deep learning mediante la arquitectura ResNet-50 para detección de engaño.</p>
-        <a href="https://biblioteca.iteso.mx/" target="_blank" class="proj-link">Más info →</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="sec inst-sec">
-  <div class="inn">
-    <div class="sec-hd">
-      <p class="lbl">Categoría</p>
-      <h2 class="ttl">Educación con IA</h2>
-      <p class="sub">Aplicaciones educativas, docencia y formación</p>
-    </div>
     <div class="proj-grid">
-      <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>IA + Realidad Aumentada en Química (UNAM)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – 2026</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">DGAPA / PAPIIT (UNAM)</span></div>
-        </div>
-        <p class="proj-desc">"Conviviendo con moléculas": integración de IA y AR en enseñanza de la química. Ganador convocatoria UNAM–Huawei 2023-2024.</p>
-        <a href="https://sites.google.com/iquimica.unam.mx/microiqunam/proyectos" target="_blank" class="proj-link">Más info →</a>
-      </div>
-      <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>Posgrados en IA (UdeG)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT / UdeG</span></div>
-        </div>
-        <p class="proj-desc">Programas de maestría y doctorado en IA y robótica.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="sec inst-sec">
-  <div class="inn">
-    <div class="sec-hd">
-      <p class="lbl">Categoría</p>
-      <h2 class="ttl">Ecosistema e Investigación</h2>
-      <p class="sub">Infraestructura, financiamiento y difusión científica</p>
-    </div>
-    <div class="proj-grid">
-      <div class="proj-card">
-        <span class="proj-status status-active">Activo</span>
-        <h3>Convocatoria Ciencia Básica (CONAHCYT)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024 – presente</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">CONAHCYT</span></div>
-        </div>
-        <p class="proj-desc">Financiamiento a proyectos de inteligencia artificial en instituciones públicas de educación superior e investigación.</p>
-      </div>
       <div class="proj-card">
         <span class="proj-status status-done">Concluido</span>
-        <h3>Revista TIES No.10 (UNAM)</h3>
+        <h3>Lineamientos éticos en IA (UDG)</h3>
         <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">UNAM / DGTIC</span></div>
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Institucional</span></div>
         </div>
-        <p class="proj-desc">Publicación académica sobre IA en educación superior.</p>
+        <p class="proj-desc">Propuesta de lineamientos éticos en investigación de IA y neurobioingeniería, abordando implicaciones de consciencia artificial.</p>
+        <a href="https://www.riudg.udg.mx/handle/20.500.12104/92438" target="_blank" class="proj-link">Más info →</a>
       </div>
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>Smart Audio Equalizer (ITESO)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">ITESO</span></div>
-        </div>
-        <p class="proj-desc">Ecualizador inteligente basado en redes neuronales para procesamiento de audio adaptativo.</p>
-      </div>
+
     </div>
   </div>
 </section>
