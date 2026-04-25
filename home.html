@@ -207,9 +207,8 @@ h1, h2, h3, h4, h5, h6,
 .tl-stage h3 {
   font-family:'Playfair Display', serif;
 }
-p, span, .sub, 
+p, span, .sub,
 .badge, .val-name, .val-desc,
-.act-body h3, .act-body p,
 .q-text, .q-auth {
   font-family:'DM Sans', sans-serif;
 }
@@ -265,6 +264,171 @@ p, span, .sub,
   font-size:.73rem; font-weight:700;
   letter-spacing:.14em; text-transform:uppercase;
   color:var(--blue);
+}
+
+/* ─── INTRO ─── */
+.intro { background: var(--white); overflow: hidden; }
+.intro-tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  border: 1px solid rgba(212,0,110,.3);
+  border-radius: 100px;
+  padding: 5px 16px;
+  margin-bottom: 18px;
+}
+.intro-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.intro-eyebrow {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 16px;
+}
+.intro-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.12;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+.intro-headline em { font-style: normal; color: var(--magenta); }
+.intro-lead {
+  font-size: .98rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.82;
+  padding-left: 18px;
+  border-left: 3px solid rgba(212,0,110,.4);
+  margin-bottom: 32px;
+}
+.intro-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.intro-chip {
+  padding: 6px 14px;
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: .76rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+.intro-features { display: flex; flex-direction: column; gap: 14px; }
+.intro-feat {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px 24px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--off);
+  transition: all .26s;
+}
+.intro-feat:hover {
+  background: var(--white);
+  border-color: rgba(28,75,130,.25);
+  box-shadow: 0 10px 30px rgba(11,31,58,.07);
+  transform: translateX(5px);
+}
+.intro-feat-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+.intro-feat-icon.c1 { background: rgba(212,0,110,.1); }
+.intro-feat-icon.c2 { background: rgba(28,75,130,.1); }
+.intro-feat-icon.c3 { background: rgba(238,61,143,.1); }
+.intro-feat-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+.intro-feat-body p {
+  font-size: .85rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.72;
+}
+
+/* ─── OBJETIVOS ─── */
+.obj-sec { background: var(--off); }
+.obj-goal {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--magenta);
+  padding: 36px 44px;
+  margin-bottom: 52px;
+  font-size: clamp(.98rem, 1.8vw, 1.15rem);
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.8;
+}
+.obj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.obj-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px 30px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: all .28s;
+}
+.obj-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--magenta), var(--pink));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .32s ease;
+}
+.obj-card:hover { transform: translateY(-5px); box-shadow: 0 18px 52px rgba(11,31,58,.1); }
+.obj-card:hover::after { transform: scaleX(1); }
+.obj-icon {
+  width: 54px; height: 54px;
+  border-radius: 14px;
+  background: rgba(212,0,110,.09);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.55rem;
+  flex-shrink: 0;
+}
+.obj-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 9px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--magenta);
+}
+.obj-body p {
+  font-size: .88rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.8;
 }
 
 /* ─── MISIÓN / VISIÓN ─── */
@@ -375,7 +539,7 @@ p, span, .sub,
 }
 .ax-title {
   font-family:'Playfair Display',serif;
-  font-size:1.3rem;font-weight:700;
+  font-size:1.5rem;font-weight:700;
   color:var(--navy);margin-bottom:10px;
 }
 .ax-tags { display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px; }
@@ -387,35 +551,73 @@ p, span, .sub,
 .ax-desc { font-size:.87rem;color:var(--mid);font-weight:300;line-height:1.8; }
 
 /* ─── ACCIONES ─── */
-.act-sec { background:var(--white); }
+.act-sec { background: var(--white); }
 .act-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
 }
-
 .act-card {
-  display:flex; gap:16px; align-items:flex-start;
-  padding:26px 22px;
-  border-radius:12px; border:1px solid var(--border);
-  background:var(--off);
-  transition:all .24s;
+  grid-column: span 2;
+  background: var(--off);
+  border-radius: 18px;
+  padding: 34px 28px 32px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .32s, transform .32s, background .32s, border-color .32s;
+}
+.act-card:nth-child(5) { grid-column: 2 / 4; }
+.act-card:nth-child(6) { grid-column: 4 / 6; }
+.act-card:nth-child(7) { grid-column: 6 / 8; }
+.act-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--magenta), var(--blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .36s ease;
 }
 .act-card:hover {
-  background:var(--white); border-color:var(--blue);
-  box-shadow:0 10px 36px rgba(28,75,130,.09);
-  transform:translateX(3px);
+  background: var(--white);
+  border-color: rgba(212,0,110,.22);
+  box-shadow: 0 14px 44px rgba(11,31,58,.1), 0 3px 10px rgba(212,0,110,.06);
+  transform: translateY(-6px);
 }
-.act-n {
-  flex-shrink:0; width:36px;height:36px;
-  border-radius:9px;
-  background:linear-gradient(135deg,var(--navy),var(--blue));
-  display:flex;align-items:center;justify-content:center;
-  font-size:.78rem;font-weight:700;color:var(--white);
+.act-card:hover::after { transform: scaleX(1); }
+.act-num {
+  position: absolute;
+  top: 14px; right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--navy);
+  opacity: .07;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity .32s;
 }
-.act-body h3 { font-weight:600;font-size:.92rem;color:var(--navy);margin-bottom:4px; }
-.act-body p  { font-size:.82rem;color:var(--mid);font-weight:300;line-height:1.74; }
+.act-card:hover .act-num { opacity: .13; }
+.act-card-bar {
+  width: 26px; height: 3px;
+  background: linear-gradient(90deg, var(--magenta), var(--pink));
+  border-radius: 2px;
+  margin-bottom: 20px;
+  transition: width .32s ease;
+}
+.act-card:hover .act-card-bar { width: 46px; }
+.act-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 10px;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.act-card p { font-size: .84rem; color: var(--mid); font-weight: 300; line-height: 1.8; }
 
 /* ─── TIMELINE ─── */
 .tl-sec { background:var(--off); }
@@ -468,7 +670,7 @@ p, span, .sub,
 }
 .tl-stage h3 {
   font-family:'Playfair Display',serif;
-  font-size:1.22rem;font-weight:700;
+  font-size:1.5rem;font-weight:700;
   color:var(--navy);margin-bottom:9px;
 }
 .tl-stage p { font-size:.86rem;color:var(--mid);font-weight:300;line-height:1.78; }
@@ -521,13 +723,31 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
   .stat-item:nth-child(5) { grid-column:1/-1; }
 }
 
+/* Intro / Objetivos */
+@media (max-width:860px) {
+  .intro-split { grid-template-columns: 1fr; gap: 44px; }
+  .obj-grid { grid-template-columns: 1fr; }
+}
+
 /* Ejes */
 @media (max-width:860px) { .axes-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:500px) { .axes-grid { grid-template-columns:1fr; } }
 
 /* Acciones */
-@media (max-width:840px) { .act-grid { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:500px) { .act-grid { grid-template-columns:1fr; } }
+@media (max-width:840px) {
+  .act-grid { grid-template-columns: repeat(4, 1fr); }
+  .act-card { grid-column: span 2; }
+  .act-card:nth-child(5),
+  .act-card:nth-child(6) { grid-column: span 2; }
+  .act-card:nth-child(7) { grid-column: 2 / 4; }
+}
+@media (max-width:500px) {
+  .act-grid { grid-template-columns: 1fr; }
+  .act-card,
+  .act-card:nth-child(5),
+  .act-card:nth-child(6),
+  .act-card:nth-child(7) { grid-column: span 1; }
+}
 
 /* Timeline */
 @media (max-width:660px) {
@@ -637,7 +857,87 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
   </div>
 </section>
 
+<!-- ── Introducción ── -->
+<section class="sec intro" id="inicio">
+  <div class="inn">
+    <div class="intro-split">
 
+      <div class="intro-left">
+        <p class="intro-eyebrow">Sobre ReflexIA</p>
+        <h2 class="intro-headline">Una iniciativa que <em>transforma</em> la universidad</h2>
+        <p class="intro-lead">Programa interdepartamental del ITESO que integra la inteligencia artificial en la vida universitaria con criterios éticos, pedagógicos y humanistas, inspirado en la tradición ignaciana.</p>
+        <div class="intro-chips">
+          <span class="intro-chip">Docencia</span>
+          <span class="intro-chip">Investigación</span>
+          <span class="intro-chip">Gestión</span>
+          <span class="intro-chip">Vinculación</span>
+        </div>
+      </div>
+
+      <div class="intro-features">
+        <div class="intro-feat">
+          <div class="intro-feat-body">
+            <h3>Iniciativa interdepartamental</h3>
+            <p>Integra la IA en la docencia, investigación, vinculación y gestión del ITESO, articulando esfuerzos a lo largo de toda la institución.</p>
+          </div>
+        </div>
+        <div class="intro-feat">
+          <div class="intro-feat-body">
+            <h3>Colaboración amplia</h3>
+            <p>Promueve un uso estratégico, pedagógico y ético de la IA mediante la colaboración de docentes, estudiantes, investigadores y aliados externos.</p>
+          </div>
+        </div>
+        <div class="intro-feat">
+          <div class="intro-feat-body">
+            <h3>Raíces ignacianas</h3>
+            <p>Fija criterios de calidad y responsabilidad que vinculan justicia social, pensamiento crítico y el compromiso del modelo educativo jesuita.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── OBJETIVOS ── -->
+<section class="sec obj-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <span class="lbl">Objetivos</span>
+      <h2 class="ttl">¿Hacia dónde vamos?</h2>
+    </div>
+    <div class="obj-goal">
+      Transformar al ITESO en un referente en la innovación con sentido social, uso estratégico, ético y pedagógico de la inteligencia artificial (IA), alineado con los valores ignacianos y el Plan Institucional 2025–2030.
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-body">
+          <h3>Acompañar</h3>
+          <p>A la comunidad académica, docentes, personal administrativo y de servicios en la mejora de procesos y servicios, con el uso de la Inteligencia Artificial.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+
+        <div class="obj-body">
+          <h3>Promover</h3>
+          <p>La generación de conocimiento y la innovación mediante proyectos inter y transdisciplinarios enfocados en nuevas aplicaciones de la Inteligencia Artificial.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-body">
+          <h3>Fomentar</h3>
+          <p>La integración significativa de la IA en los procesos de enseñanza y aprendizaje, personalizando trayectorias formativas y desarrollando el pensamiento crítico.</p>
+        </div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-body">
+          <h3>Formar</h3>
+          <p>Conciencia ética y compromiso social sobre el uso de la IA, guiados por los valores ignacianos de justicia, inclusión y responsabilidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ── MISIÓN / VISIÓN / PROPÓSITO ── -->
 <section class="sec mv-sec">
   <div class="inn">
@@ -740,39 +1040,35 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 
 
 <!-- ── EJES ESTRATÉGICOS ── -->
-<section class="sec axes-sec">
+<section class="sec axes-sec" id="ejes">
   <div class="inn">
     <div class="sec-hd">
       <span class="lbl">Ecosistema ITESO</span>
-      <h2 class="ttl">Ejes Estratégicos</h2>
+      <h2 class="ttl"> 4 Ejes Estratégicos</h2>
       <p class="sub">Cuatro dimensiones que articulan formación, gestión institucional e impacto social para integrar la IA en toda la vida universitaria.</p>
     </div>
 
     <div class="axes-grid">
 
       <div class="ax-card">
-        <p class="ax-num">01</p>
         <h3 class="ax-title">Académico</h3>
         <div class="ax-tags"><span>Calidad académica</span><span>Formación</span><span>Investigación</span></div>
         <p class="ax-desc">Fortalece la docencia y la investigación mediante metodologías de IA responsable, formando personas competentes, libres y comprometidas con la transformación social.</p>
       </div>
 
       <div class="ax-card">
-        <p class="ax-num">02</p>
         <h3 class="ax-title">Comunitario</h3>
         <div class="ax-tags"><span>Incidencia social</span><span>Medioambiente</span></div>
         <p class="ax-desc">Conecta la IA con las urgencias sociales y ambientales del entorno, convirtiendo al ITESO en agente de cambio al servicio de la justicia y el bien común.</p>
       </div>
 
       <div class="ax-card">
-        <p class="ax-num">03</p>
         <h3 class="ax-title">Administrativo</h3>
         <div class="ax-tags"><span>Sustentabilidad</span><span>Optimización</span></div>
         <p class="ax-desc">Integra analítica y automatización ética para liberar recursos, agilizar servicios y fortalecer la sostenibilidad institucional sin despersonalizar la universidad.</p>
       </div>
 
       <div class="ax-card">
-        <p class="ax-num">04</p>
         <h3 class="ax-title">Redes</h3>
         <div class="ax-tags"><span>Relaciones</span><span>Alianzas</span><span>Acuerdos</span></div>
         <p class="ax-desc">Teje alianzas académicas, industriales y cívicas para co-crear conocimiento, transferir innovación y posicionar al ITESO como referente regional en IA humanista.</p>
@@ -795,59 +1091,52 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
     <div class="act-grid">
 
       <div class="act-card">
-        <div class="act-n">01</div>
-        <div class="act-body">
-          <h3>Entornos de Formación</h3>
-          <p>Capacitación integral para docentes y personal en el uso crítico, ético y responsable de la IA: conferencias, talleres, diplomados y comunidades de práctica.</p>
-        </div>
+        <span class="act-num">01</span>
+        <div class="act-card-bar"></div>
+        <h3>Entornos de Formación</h3>
+        <p>Capacitación integral para docentes y personal en el uso crítico, ético y responsable de la IA: conferencias, talleres, diplomados y comunidades de práctica.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">02</div>
-        <div class="act-body">
-          <h3>Microcredencialización</h3>
-          <p>Diseño y emisión de microcursos con open-badges institucionales que certifican competencias en IA de forma flexible y progresiva.</p>
-        </div>
+        <span class="act-num">02</span>
+        <div class="act-card-bar"></div>
+        <h3>Micro-credencialización</h3>
+        <p>Diseño y emisión de microcursos con open-badges institucionales que certifican competencias en IA de forma flexible y progresiva.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">03</div>
-        <div class="act-body">
-          <h3>Embajadores</h3>
-          <p>Red interdepartamental de más de 49 representantes que articulan buenas prácticas, mentorías y reflexión crítica sobre IA en cada área de la universidad.</p>
-        </div>
+        <span class="act-num">03</span>
+        <div class="act-card-bar"></div>
+        <h3>Embajadores</h3>
+        <p>Red interdepartamental de más de 49 representantes que articulan buenas prácticas, mentorías y reflexión crítica sobre IA en cada área de la universidad.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">04</div>
-        <div class="act-body">
-          <h3>PAP Inteligencia Artificial</h3>
-          <p>Programas de Aplicación Profesional que desarrollan soluciones de IA con impacto social real, vinculando formación académica y comunidad.</p>
-        </div>
+        <span class="act-num">04</span>
+        <div class="act-card-bar"></div>
+        <h3>PAP Inteligencia Artificial</h3>
+        <p>Programas de Aplicación Profesional que desarrollan soluciones de IA con impacto social real, vinculando formación académica y comunidad.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">05</div>
-        <div class="act-body">
-          <h3>Investigación y Desarrollo</h3>
-          <p>Proyectos interdisciplinarios sobre IA educativa y ética, con divulgación científica y conexión con redes nacionales e internacionales.</p>
-        </div>
+        <span class="act-num">05</span>
+        <div class="act-card-bar"></div>
+        <h3>Investigación y Desarrollo</h3>
+        <p>Proyectos interdisciplinarios sobre IA educativa y ética, con divulgación científica y conexión con redes nacionales e internacionales.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">06</div>
-        <div class="act-body">
-          <h3>Observatorio de IA</h3>
-          <p>Plataforma de vigilancia tecnológica, análisis prospectivo y tableros de indicadores para monitorear riesgos y oportunidades de la IA.</p>
-        </div>
+        <span class="act-num">06</span>
+        <div class="act-card-bar"></div>
+        <h3>Observatorio de IA</h3>
+        <p>Plataforma de vigilancia tecnológica, análisis prospectivo y tableros de indicadores para monitorear riesgos y oportunidades de la IA.</p>
       </div>
 
       <div class="act-card">
-        <div class="act-n">07</div>
-        <div class="act-body">
-          <h3>Mejora de Procesos Administrativos</h3>
-          <p>Automatización ética, chatbots y analítica predictiva para agilizar servicios institucionales manteniendo el trato humano.</p>
-        </div>
+        <span class="act-num">07</span>
+        <div class="act-card-bar"></div>
+        <h3>Mejora de Procesos Administrativos</h3>
+        <p>Automatización ética, chatbots y analítica predictiva para agilizar servicios institucionales manteniendo el trato humano.</p>
       </div>
 
     </div>
