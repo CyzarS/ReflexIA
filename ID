@@ -8,7 +8,34 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;background:var(--off);color:var(--text);line-height:1.7;overflow-x:hidden}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
 
+.card {
+  background: #f4f6fb;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #0b1f3a;
+}
+.card p {
+  font-size: 0.95rem;
+  color: #4a5a6a;
+  line-height: 1.6;
+}
 /* HERO */
 .hero{position:relative;min-height:46vh;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:64px 24px 56px}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 72% 38%,rgba(28,75,130,.65) 0%,transparent 65%),radial-gradient(ellipse 55% 75% at 10% 85%,rgba(212,0,110,.30) 0%,transparent 58%)}
@@ -106,9 +133,222 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
 </div>
 
 <div style="height:48px; background:linear-gradient(to bottom, #0b1f3a, #f4f7fb);"></div>
+<div style="height:48px; background:linear-gradient(to bottom, #0b1f3a, #f4f7fb);"></div>
+<div class="cards-grid">
+  <div class="card">
+
+    <h3>Información para la acción</h3>
+    <p>Organización de actividades para recopilar, analizar e interpretar información veraz y actualizada orientada a la toma de decisiones.</p>
+  </div>
+
+  <div class="card">
+
+    <h3>Ciencia, tecnología e innovación</h3>
+    <p>Seguimiento de avances en inteligencia artificial, tendencias en investigación aplicada y buenas prácticas en educación digital y gestión institucional.</p>
+  </div>
+
+  <div class="card">
+
+    <h3>Transformación de datos en indicadores</h3>
+    <p>Medición del estado y evolución del fenómeno observado mediante indicadores comparables y consistentes.</p>
+  </div>
+
+  <div class="card">
+
+    <h3>Evaluación continua</h3>
+    <p>Implementación de procesos de evaluación constante basados en la retroalimentación entre dimensiones técnicas y sociales de la IA.</p>
+  </div>
+
+  <div class="card">
+
+    <h3>Vigilancia estratégica continua</h3>
+    <p>Sistema de alerta temprana del ecosistema de IA que permite integrar información clave para la toma de decisiones estratégicas.</p>
+  </div>
+
+  <div class="card">
+    <h3>Investigación aplicada y prospectiva</h3>
+    <p>Desarrollo de estudios de diagnóstico, seguimiento de políticas públicas y construcción de escenarios futuros en inteligencia artificial.</p>
+  </div>
+</div>
+
+<section class="sec inst-sec">
+  <div class="inn">
+
+    <div class="sec-hd">
+      <h2 class="ttl">Marco de Gobernanza</h2>
+      <p class="sub">Regulación, normativas y marcos estratégicos para el desarrollo de la inteligencia artificial en México</p>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- PROTECCIÓN DE DATOS -->
+      <div class="proj-card">
+        <span class="proj-status status-active">Protección de Datos</span>
+        <h3>Ley Nacional para Regular el Uso de la IA</h3>
+        <p class="proj-desc">Iniciativa legislativa que propone un marco ético y regulatorio para la IA, incluyendo monitoreo, protección de datos y creación de un consejo especializado.</p>
+        <a href="https://comunicacionsocial.diputados.gob.mx/index.php/boletines/impulsan-iniciativa-para-expedir-la-ley-de-regulacion-tica-de-la-inteligencia-artificial-y-la-robotica" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Protección de Datos</span>
+        <h3>Recomendaciones sobre tratamiento de datos en IA</h3>
+        <p class="proj-desc">Guía técnica que establece principios de privacidad, transparencia y rendición de cuentas en el uso de datos para sistemas de IA.</p>
+        <a href="https://inicio.inai.org.mx/nuevo/RIPD_Recomendaciones-generales-para-el-tratamiento-de-datos-en-la-ia.pdf" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Marco Legal</span>
+        <h3>Normativa vigente en México</h3>
+        <p class="proj-desc">Conjunto de leyes de protección de datos que aplican indirectamente a la IA, como la LFPDPPP y la LGPDPSO.</p>
+        <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LGPDPPSO.pdf" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- INICIATIVAS NACIONALES -->
+      <div class="proj-card">
+        <span class="proj-status status-active">Iniciativas</span>
+        <h3>Ley Federal que Regula la IA (2024)</h3>
+        <p class="proj-desc">Propuesta que clasifica sistemas por niveles de riesgo y establece al IFT como regulador principal.</p>
+        <a href="https://basham.com.mx/iniciativa-de-ley-para-regular-la-inteligencia-artificial-en-mexico-puntos-clave/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Iniciativas</span>
+        <h3>Ley para el Desarrollo Ético de la IA (2025)</h3>
+        <p class="proj-desc">Marco integral que aborda derechos de autor, supervisión y sanciones en el uso de IA.</p>
+        <a href="https://institutoautor.org/mexico-se-presentan-varias-iniciativas-legislativas-para-regular-la-inteligencia-artificial/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Institucional</span>
+        <h3>Comisión de IA del Senado</h3>
+        <p class="proj-desc">Órgano encargado de impulsar regulación, consultas y lineamientos en inteligencia artificial.</p>
+        <a href="https://centrocompetencia.com/mexico-las-diversas-iniciativas-de-regulacion-de-la-ia/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- MARCOS INTERNACIONALES -->
+      <div class="proj-card">
+        <span class="proj-status status-active">Internacional</span>
+        <h3>Recomendación UNESCO sobre IA</h3>
+        <p class="proj-desc">Primer marco global ético adoptado por 194 países, enfocado en derechos humanos y transparencia.</p>
+        <a href="https://www.unesco.org/es/legal-affairs/recommendation-ethics-artificial-intelligence" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Internacional</span>
+        <h3>AI Act – Unión Europea</h3>
+        <p class="proj-desc">Regulación integral que clasifica sistemas de IA por niveles de riesgo y establece obligaciones legales.</p>
+        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-active">Internacional</span>
+        <h3>Principios OCDE sobre IA</h3>
+        <p class="proj-desc">Lineamientos para el desarrollo responsable de la IA, incluyendo seguridad, transparencia e inclusión.</p>
+        <a href="https://www.oecd.org/en/topics/ai-principles.html" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <section class="stats-sec">
-  <h2 class="stats-title">Inversión en Investigación y Desarrollo <span>(I+D)</span></h2>
+  <h2 class="stats-title">Indicadores Clave de Gobernanza en <span> IA </span> </h2>
+  <div class="stats-grid">
+    <div><p class="stat-num">3</p><p class="stat-lbl">Normativas base</p></div>
+    <div><p class="stat-num">4 </p><p class="stat-lbl">Iniciativas</p></div>
+    <div><p class="stat-num">3</p><p class="stat-lbl">Marcos internacionales</p></div>
+    <div><p class="stat-num">1</p><p class="stat-lbl">Órganos institucionales</p></div>
+    <div><p class="stat-num">2024</p><p class="stat-lbl">Año clave</p></div>
+    <div><p class="stat-num">2025</p><p class="stat-lbl">Horizonte regulatorio</p></div>
+  </div>
+</section>
+
+<section class="sec inst-sec">
+  <div class="inn">
+    <div class="sec-hd">
+      <h2 class="ttl"> Inversión en Investigación y Desarrollo (I+D) </h2>
+      <p class="sub">Análisis de financiamiento, proyectos y capacidades institucionales para el desarrollo de la inteligencia artificial en México</p>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Modelos Generativos y Lenguaje</span>
+        <h3>TECgpt (Tecnológico de Monterrey)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Tecnológico de Monterrey</span></div>
+        </div>
+        <p class="proj-desc">Primer modelo de inteligencia artificial generativa en Latinoamérica enfocado en generación de contenido y NLP.</p>
+        <a href="https://tecscience.tec.mx/en/tech/tecgpt/" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Modelos Generativos y Lenguaje</span>
+        <h3>IA generativa en negocios (ITESO)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">ITESO institucional</span></div>
+        </div>
+        <p class="proj-desc">Análisis del impacto de la IA generativa en procesos empresariales, ventajas competitivas y retos regulatorios.</p>
+        <a href="https://rei.iteso.mx/items/f8af0537-294e-4deb-9971-51c0e19835e1" target="_blank" class="proj-link">Más info →</a>
+      </div>
+      <div class="proj-card">
+        <span class="proj-status status-done">Sectores Estratégicos</span>
+        <h3>IA en diseño de fármacos (UNAM)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
+        </div>
+        <p class="proj-desc">Aplicación de IA en el desarrollo de fármacos para optimizar descubrimiento de compuestos y procesos de investigación.</p>
+        <a href="https://www.revistas.unam.mx/index.php/req/article/view/83233" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Sectores Estratégicos</span>
+        <h3>IA en agricultura (IPN)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
+        </div>
+        <p class="proj-desc">Detección de daño en cultivos mediante técnicas de IA para mejorar la productividad agrícola.</p>
+        <a href="https://rcs.cic.ipn.mx/2024_153_9/Tecnicas%20de%20inteligencia%20artificial%20para%20la%20deteccion.pdf" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Sectores Estratégicos</span>
+        <h3>Diseño estratégico con IA (IBERO)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
+        </div>
+        <p class="proj-desc">Uso de inteligencia artificial para generar insights y transformar procesos creativos en mercados de consumo.</p>
+        <a href="https://ri.ibero.mx/bitstream/handle/ibero/2421/016924s.pdf" target="_blank" class="proj-link">Más info →</a>
+      </div>
+
+      <div class="proj-card">
+        <span class="proj-status status-done">Gobernanza y Ética de la IA</span>
+        <h3>Lineamientos éticos en IA (UDG)</h3>
+        <div class="proj-meta">
+          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
+          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Institucional</span></div>
+        </div>
+        <p class="proj-desc">Propuesta de lineamientos éticos en investigación de IA y neurobioingeniería, abordando implicaciones de consciencia artificial.</p>
+        <a href="https://www.riudg.udg.mx/handle/20.500.12104/92438" target="_blank" class="proj-link">Más info →</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="stats-sec">
+  <h2 class="stats-title">Proyecto de Inversión en Investigación y Desarrollo <span>(I+D)</span></h2>
   <div class="stats-grid">
     <div><p class="stat-num">6</p><p class="stat-lbl">Instituciones</p></div>
     <div><p class="stat-num">6</p><p class="stat-lbl">Proyectos</p></div>
@@ -119,107 +359,6 @@ footer { background:var(--navy);color:var(--white);padding:60px 24px 32px; }
   </div>
 </section>
 
-<section class="sec inst-sec">
-  <div class="inn">
-    <div class="sec-hd">
-      <h2 class="ttl">Modelos Generativos y Lenguaje</h2>
-      <p class="sub">Desarrollo y aplicación de modelos generativos y procesamiento de lenguaje natural</p>
-    </div>
-
-    <div class="proj-grid">
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>TECgpt (Tecnológico de Monterrey)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023 – 2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Tecnológico de Monterrey</span></div>
-        </div>
-        <p class="proj-desc">Primer modelo de inteligencia artificial generativa en Latinoamérica enfocado en generación de contenido y NLP.</p>
-        <a href="https://tecscience.tec.mx/en/tech/tecgpt/" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>IA generativa en negocios (ITESO)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">ITESO institucional</span></div>
-        </div>
-        <p class="proj-desc">Análisis del impacto de la IA generativa en procesos empresariales, ventajas competitivas y retos regulatorios.</p>
-        <a href="https://rei.iteso.mx/items/f8af0537-294e-4deb-9971-51c0e19835e1" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="sec inst-sec">
-  <div class="inn">
-    <div class="sec-hd">
-      <h2 class="ttl">Aplicaciones de IA en Sectores Estratégicos</h2>
-      <p class="sub">Uso de inteligencia artificial en salud, industria, agricultura y mercados</p>
-    </div>
-
-    <div class="proj-grid">
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>IA en diseño de fármacos (UNAM)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
-        </div>
-        <p class="proj-desc">Aplicación de IA en el desarrollo de fármacos para optimizar descubrimiento de compuestos y procesos de investigación.</p>
-        <a href="https://www.revistas.unam.mx/index.php/req/article/view/83233" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>IA en agricultura (IPN)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2024</span></div>
-        </div>
-        <p class="proj-desc">Detección de daño en cultivos mediante técnicas de IA para mejorar la productividad agrícola.</p>
-        <a href="https://rcs.cic.ipn.mx/2024_153_9/Tecnicas%20de%20inteligencia%20artificial%20para%20la%20deteccion.pdf" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>Diseño estratégico con IA (IBERO)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
-        </div>
-        <p class="proj-desc">Uso de inteligencia artificial para generar insights y transformar procesos creativos en mercados de consumo.</p>
-        <a href="https://ri.ibero.mx/bitstream/handle/ibero/2421/016924s.pdf" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="sec inst-sec">
-  <div class="inn">
-    <div class="sec-hd">
-      <h2 class="ttl">Gobernanza y Ética de la IA</h2>
-      <p class="sub">Análisis de implicaciones sociales, éticas y regulatorias de la inteligencia artificial</p>
-    </div>
-
-    <div class="proj-grid">
-
-      <div class="proj-card">
-        <span class="proj-status status-done">Concluido</span>
-        <h3>Lineamientos éticos en IA (UDG)</h3>
-        <div class="proj-meta">
-          <div class="proj-meta-row"><span class="key">Inicio</span><span class="val">2023</span></div>
-          <div class="proj-meta-row"><span class="key">Financiamiento</span><span class="val">Institucional</span></div>
-        </div>
-        <p class="proj-desc">Propuesta de lineamientos éticos en investigación de IA y neurobioingeniería, abordando implicaciones de consciencia artificial.</p>
-        <a href="https://www.riudg.udg.mx/handle/20.500.12104/92438" target="_blank" class="proj-link">Más info →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ── FOOTER ── -->
 <footer>
